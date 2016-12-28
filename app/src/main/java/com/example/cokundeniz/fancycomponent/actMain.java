@@ -9,8 +9,10 @@ import android.graphics.Point;
 import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.Display;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 public class actMain extends Activity {
     RelativeLayout rlBackground;
@@ -38,17 +40,32 @@ public class actMain extends Activity {
     }
 
     private void BindControls() {
-        paint = new Paint();
-        paint.setColor(Color.rgb(220,220,150));
-        bitmap = Bitmap.createBitmap(intScreenWidth,intScreenHeight,Bitmap.Config.ARGB_8888);
-        canvas = new Canvas(bitmap);
-        canvas.drawColor(Color.rgb(50,100,255));
-        canvas.drawRoundRect(new RectF(100, 100, 200, 200), 20, 20, paint);
-        BitmapDrawable drBackground = new BitmapDrawable(getResources(),bitmap);
-
         rlBackground = (RelativeLayout)findViewById(R.id.rlBackground);
-        rlBackground.setBackgroundDrawable(drBackground);
+
+
+        new CountDownTimer(30000, 33) {
+            int i=0;
+            public void onTick(long millisUntilFinished) {
+                i++;
+                paint = new Paint();
+                paint.setColor(Color.rgb(220,220,100));
+                bitmap = Bitmap.createBitmap(intScreenWidth,intScreenHeight,Bitmap.Config.ARGB_8888);
+                canvas = new Canvas(bitmap);
+                canvas.drawColor(Color.rgb(50,100,255));
+                canvas.drawRoundRect(new RectF(100+i, 100, 200+i, 200), 20, 20, paint);
+                BitmapDrawable drBackground = new BitmapDrawable(getResources(),bitmap);
+                rlBackground.setBackgroundDrawable(drBackground);
+            }
+
+            public void onFinish() {
+                Toast.makeText(getApplicationContext(),"Çizim bitti !",Toast.LENGTH_SHORT).show();
+            }
+
+        }.start();
+
     }
+
+
 
     private void Test (){
         int i = 1 + 1 ;
