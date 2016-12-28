@@ -13,7 +13,7 @@ public class actMain extends Activity {
 
     private void Test (){
         int i = 1 + 1 ;
-        String strName = "Cşkun";
+        String strName = "Coşkun";
         String strSurname = "Deniz";
     }
 }
