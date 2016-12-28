@@ -43,7 +43,7 @@ public class actMain extends Activity {
         rlBackground = (RelativeLayout)findViewById(R.id.rlBackground);
 
 
-        new CountDownTimer(10000,33) {
+        new CountDownTimer(10000,100) {
             int i=0;
             public void onTick(long millisUntilFinished) {
                 i++;
