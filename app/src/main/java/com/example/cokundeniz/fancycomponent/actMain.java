@@ -13,6 +13,6 @@ public class actMain extends Activity {
 
     private void Test (){
         int i = 1 + 1 ;
-        String name = "Cşkun Deniz";
+        String strName = "Cşkun Deniz";
     }
 }
