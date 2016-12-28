@@ -1,9 +1,9 @@
 package com.example.cokundeniz.fancycomponent;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 
-public class actMain extends AppCompatActivity {
+public class actMain extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -13,5 +13,6 @@ public class actMain extends AppCompatActivity {
 
     private void Test (){
         int i = 1 + 1 ;
+        String name = "Cşkun Deniz";
     }
 }
