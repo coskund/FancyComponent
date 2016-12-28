@@ -43,7 +43,7 @@ public class actMain extends Activity {
         rlBackground = (RelativeLayout)findViewById(R.id.rlBackground);
 
 
-        new CountDownTimer(30000, 33) {
+        new CountDownTimer(10000,33) {
             int i=0;
             public void onTick(long millisUntilFinished) {
                 i++;
@@ -58,7 +58,7 @@ public class actMain extends Activity {
             }
 
             public void onFinish() {
-                Toast.makeText(getApplicationContext(),"Çizim bitti !",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Çizim bitti !\ni = " + String.valueOf(i),Toast.LENGTH_SHORT).show();
             }
 
         }.start();
