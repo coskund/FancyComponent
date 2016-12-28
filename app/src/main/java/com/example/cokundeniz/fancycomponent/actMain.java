@@ -1,11 +1,15 @@
 package com.example.cokundeniz.fancycomponent;
 
 import android.app.Activity;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.widget.RelativeLayout;
 
 public class actMain extends Activity {
     RelativeLayout rlBackground;
+    Paint paint;
+    Canvas canvas;
 
 
     @Override
