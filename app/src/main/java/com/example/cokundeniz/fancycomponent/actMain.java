@@ -44,7 +44,7 @@ public class actMain extends Activity {
         rlBackground = (RelativeLayout)findViewById(R.id.rlBackground);
 
 
-        new CountDownTimer(10000,100) {
+        new CountDownTimer(50000,100) {
             int i=0;
             public void onTick(long millisUntilFinished) {
                 i++;
@@ -56,12 +56,11 @@ public class actMain extends Activity {
                 paint.setColor(Color.rgb(255,255,100));
                 canvas.drawRoundRect(new RectF(100+i, 100, 300+i, 300), 20, 20, paint);
 
-
                 Typeface plain = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/unsplats.ttf");
                 Typeface bold = Typeface.create(plain,Typeface.BOLD);
                 paint.setTypeface(bold);
-                paint.setColor(Color.BLACK);
-                paint.setTextSize(40);
+                paint.setColor(Color.rgb(204, 51, 255));
+                paint.setTextSize(60);
                 canvas.drawText("Coskun", 125+i, 200, paint);
 
                 BitmapDrawable drBackground = new BitmapDrawable(getResources(),bitmap);
