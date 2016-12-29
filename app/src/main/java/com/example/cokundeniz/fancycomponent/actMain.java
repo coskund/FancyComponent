@@ -51,7 +51,7 @@ public class actMain extends Activity {
                 paint.setColor(Color.rgb(220,220,100));
                 bitmap = Bitmap.createBitmap(intScreenWidth,intScreenHeight,Bitmap.Config.ARGB_8888);
                 canvas = new Canvas(bitmap);
-                canvas.drawColor(Color.rgb(50,100,255));
+                canvas.drawColor(Color.argb(5,50,100,255));
                 canvas.drawRoundRect(new RectF(100+i, 100, 300+i, 300), 20, 20, paint);
                 BitmapDrawable drBackground = new BitmapDrawable(getResources(),bitmap);
                 rlBackground.setBackgroundDrawable(drBackground);
