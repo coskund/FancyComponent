@@ -12,11 +12,14 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.Display;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 public class actMain extends Activity {
     RelativeLayout rlBackground;
+    LinearLayout llPlayground;
     Paint paint;
     Bitmap bitmap;
     Canvas canvas;
@@ -30,6 +33,21 @@ public class actMain extends Activity {
 
         GetScreenSize();
         BindControls();
+        DrawSquare();
+    }
+
+    private void DrawSquare() {
+
+        bitmap = Bitmap.createBitmap(intScreenWidth,intScreenHeight,Bitmap.Config.ARGB_8888);
+        canvas = new Canvas(bitmap);
+        //canvas.drawColor(Color.rgb(50,100,255));
+
+        paint = new Paint();
+        paint.setColor(Color.argb(180,30,30,30));
+        canvas.drawRoundRect(new RectF(0, 80, intScreenWidth, 320), 0, 0, paint);
+
+        BitmapDrawable drPlayground = new BitmapDrawable(getResources(),bitmap);
+        llPlayground.setBackgroundDrawable(drPlayground);
     }
 
     private void GetScreenSize() {
@@ -42,9 +60,16 @@ public class actMain extends Activity {
 
     private void BindControls() {
         rlBackground = (RelativeLayout)findViewById(R.id.rlBackground);
+        rlBackground.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"Arka layout",Toast.LENGTH_SHORT).show();
+            }
+        });
+        llPlayground = (LinearLayout)findViewById(R.id.llPlayground);
 
 
-        new CountDownTimer(50000,100) {
+        new CountDownTimer(35000,100) {
             int i=0;
             public void onTick(long millisUntilFinished) {
                 i++;
@@ -73,6 +98,7 @@ public class actMain extends Activity {
             }
 
         }.start();
+
 
     }
 
