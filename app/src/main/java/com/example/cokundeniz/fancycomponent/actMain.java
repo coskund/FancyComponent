@@ -17,7 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-public class actMain extends Activity {
+public class actMain extends Activity implements View.OnClickListener{
     RelativeLayout rlBackground;
     LinearLayout llPlayground;
     Paint paint;
@@ -60,13 +60,9 @@ public class actMain extends Activity {
 
     private void BindControls() {
         rlBackground = (RelativeLayout)findViewById(R.id.rlBackground);
-        rlBackground.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"Arka layout",Toast.LENGTH_SHORT).show();
-            }
-        });
+        rlBackground.setOnClickListener(this);
         llPlayground = (LinearLayout)findViewById(R.id.llPlayground);
+        //llPlayground.setOnClickListener(this);
 
 
         new CountDownTimer(35000,100) {
@@ -102,11 +98,13 @@ public class actMain extends Activity {
 
     }
 
-
-
-    private void Test (){
-        int i = 1 + 1 ;
-        String strName = "Coşkun";
-        String strSurname = "Deniz";
+    @Override
+    public void onClick(View v) {
+        if(v==rlBackground){
+            Toast.makeText(getApplicationContext(),"Arka layout",Toast.LENGTH_SHORT).show();
+        }
+        if(v==llPlayground){
+            Toast.makeText(getApplicationContext(),"Ön layout",Toast.LENGTH_SHORT).show();
+        }
     }
 }
