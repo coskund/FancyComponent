@@ -43,7 +43,7 @@ public class actMain extends Activity implements View.OnClickListener{
         //canvas.drawColor(Color.rgb(50,100,255));
 
         paint = new Paint();
-        paint.setColor(Color.argb(180,30,30,30));
+        paint.setColor(Color.argb(180,255,255,255));
         canvas.drawRoundRect(new RectF(0, 80, intScreenWidth, 320), 0, 0, paint);
 
         BitmapDrawable drPlayground = new BitmapDrawable(getResources(),bitmap);
