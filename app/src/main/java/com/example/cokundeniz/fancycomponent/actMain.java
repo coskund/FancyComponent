@@ -61,7 +61,8 @@ public class actMain extends Activity {
                 paint.setTypeface(bold);
                 paint.setColor(Color.rgb(204, 51, 255));
                 paint.setTextSize(60);
-                canvas.drawText("Coskun\nDeniz", 125+i, 200, paint);
+                canvas.drawText("Coskun", 125+i, 200, paint);
+                canvas.drawText("Deniz", 125+i, 250, paint);
 
                 BitmapDrawable drBackground = new BitmapDrawable(getResources(),bitmap);
                 rlBackground.setBackgroundDrawable(drBackground);
