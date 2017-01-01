@@ -17,12 +17,15 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import java.util.Random;
+
 public class actMain extends Activity implements View.OnClickListener{
     RelativeLayout rlBackground;
     LinearLayout llPlayground;
     Paint paint;
     Bitmap bitmap;
     Canvas canvas;
+    Random random;
     int intScreenWidth, intScreenHeight;
 
 
@@ -50,6 +53,8 @@ public class actMain extends Activity implements View.OnClickListener{
         llPlayground = (LinearLayout)findViewById(R.id.llPlayground);
         //llPlayground.setOnClickListener(this);
 
+        final int rnd = random.nextInt(500);
+
         new CountDownTimer(35000,100) {
             int i=0;
             public void onTick(long millisUntilFinished) {
@@ -61,6 +66,8 @@ public class actMain extends Activity implements View.OnClickListener{
                 paint = new Paint();
                 paint.setColor(Color.rgb(255,255,100));
                 canvas.drawRoundRect(new RectF(100+i, 100, 300+i, 300), 20, 20, paint);
+
+                canvas.drawCircle((intScreenWidth/2)+rnd, (intScreenHeight/2)+350-i, 5, paint);
 
                 Typeface plain = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/unsplats.ttf");
                 Typeface bold = Typeface.create(plain,Typeface.BOLD);
