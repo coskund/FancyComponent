@@ -36,20 +36,6 @@ public class actMain extends Activity implements View.OnClickListener{
         DrawSquare();
     }
 
-    private void DrawSquare() {
-
-        bitmap = Bitmap.createBitmap(intScreenWidth,intScreenHeight,Bitmap.Config.ARGB_8888);
-        canvas = new Canvas(bitmap);
-        //canvas.drawColor(Color.rgb(50,100,255));
-
-        paint = new Paint();
-        paint.setColor(Color.argb(180,255,255,255));
-        canvas.drawRoundRect(new RectF(0, 80, intScreenWidth, 320), 0, 0, paint);
-
-        BitmapDrawable drPlayground = new BitmapDrawable(getResources(),bitmap);
-        llPlayground.setBackgroundDrawable(drPlayground);
-    }
-
     private void GetScreenSize() {
         Display display = getWindowManager().getDefaultDisplay();
         Point size = new Point();
@@ -63,7 +49,6 @@ public class actMain extends Activity implements View.OnClickListener{
         rlBackground.setOnClickListener(this);
         llPlayground = (LinearLayout)findViewById(R.id.llPlayground);
         //llPlayground.setOnClickListener(this);
-
 
         new CountDownTimer(35000,100) {
             int i=0;
@@ -92,11 +77,30 @@ public class actMain extends Activity implements View.OnClickListener{
             public void onFinish() {
                 Toast.makeText(getApplicationContext(),"Çizim bitti !\ni = " + String.valueOf(i),Toast.LENGTH_SHORT).show();
             }
-
         }.start();
-
-
     }
+
+    private void DrawSquare() {
+        bitmap = Bitmap.createBitmap(intScreenWidth,intScreenHeight,Bitmap.Config.ARGB_8888);
+        canvas = new Canvas(bitmap);
+        //canvas.drawColor(Color.rgb(50,100,255));
+
+        paint = new Paint();
+        paint.setColor(Color.argb(180,255,255,255));
+        canvas.drawRoundRect(new RectF(0, 80, intScreenWidth, 320), 0, 0, paint);
+
+        //Draw Line
+        paint.setColor(Color.rgb(0,0,0));
+        paint.setStrokeWidth(10);
+        canvas.drawLine((intScreenWidth/2)-250,(intScreenHeight/2)+350,(intScreenWidth/2)+250,(intScreenHeight/2)+350,paint);
+
+        BitmapDrawable drPlayground = new BitmapDrawable(getResources(),bitmap);
+        llPlayground.setBackgroundDrawable(drPlayground);
+    }
+
+
+
+
 
     @Override
     public void onClick(View v) {
